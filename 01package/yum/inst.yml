@@ -1,0 +1,5 @@
+---
+- hosts: all
+  tasks: 
+  - name: Install a httpd pkg on redhat machines
+    yum: name=git state=installed 

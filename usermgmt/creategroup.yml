@@ -1,0 +1,8 @@
+---
+- hosts: demo
+  become: yes
+  
+  tasks:
+  - name: create a group
+    group:
+      name: gp1

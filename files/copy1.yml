@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: create a new file with data using copy module
+    copy:
+      content: "This is my 1st file with data"
+      dest: /tmp/file4

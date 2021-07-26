@@ -1,0 +1,13 @@
+---
+- name: Cron Job
+  hosts: all
+  tasks:
+    - name: Crontab file exists2
+      cron:
+        name: Add date and time to a file2
+        minute: "*/2"
+        hour: 9-16
+        weekday: 1-5
+        user: ansible
+        job: ls-l >> /home/ansible/disk_free
+        state: present

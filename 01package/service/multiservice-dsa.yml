@@ -1,0 +1,12 @@
+---
+- hosts: demo
+  tasks:
+  - name: stop and disable httpd and rsyslog
+    service:
+      name: "{{ item }}"
+      state: stopped
+      enabled: false
+    loop:
+      - httpd
+      - cups
+      - rsyslog

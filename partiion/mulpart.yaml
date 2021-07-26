@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: no
+  vars_files:
+    - storage_vars.yml
+  tasks:
+  - name: Create a new primary partition
+    parted:
+      device: /dev/sdb
+      number: "{{ item.number }}"
+      part_start: "{{ item.start }}"
+      part_end: "{{ item.end }}"
+      state: present
+    loop: "{{ partitions }}"

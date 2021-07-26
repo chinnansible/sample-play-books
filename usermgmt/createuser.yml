@@ -1,0 +1,7 @@
+---
+- hosts: demo
+  become: yes
+  tasks:
+  - name: create a new user
+    user:
+      name: newuser1

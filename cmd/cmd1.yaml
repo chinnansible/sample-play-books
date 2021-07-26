@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: motd
+    command: cat /etc/motd
+    register: mymotd
+

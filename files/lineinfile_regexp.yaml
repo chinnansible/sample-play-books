@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: change the selinux from enforcing to permissive
+    lineinfile:
+      path: /etc/selinux/config
+      regexp: '^SELINUX='
+#      line: SELINUX=permissive
+      line: SELINUX=enforcing
+

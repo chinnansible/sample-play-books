@@ -1,0 +1,36 @@
+---
+
+- hosts: all
+  become: yes
+  
+  tasks:
+  
+  - name: Remove packages on CentOS
+    yum: name= "{{ item }}" state=absent
+    when: ansible_os_family == "CentOS"
+    with_items: 
+      - epel-release 
+      - git 
+      - httpd 
+      - cups 
+      - rsyslog
+  
+  - name: Remove packages RedHat
+    yum: name= "{{ item }}" state=absent
+    when: ansible_os_family == "RedHat"
+    with_items: 
+      - epel-release 
+      - git 
+      - httpd 
+      - cups 
+      - rsyslog
+
+  - name: Remove packages on Debian
+    apt: pkg= "{{ item }}" state=absent
+    when: ansible_os_family == "Debian"
+    with_items: 
+      - epel-release 
+      - git 
+      - httpd 
+      - cups 
+      - rsyslog

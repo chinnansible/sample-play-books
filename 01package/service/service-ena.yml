@@ -1,0 +1,9 @@
+---
+#This playbook is to start httpd service
+- hosts: all
+  tasks:
+  - name: Start httpd service
+    service:
+      name: httpd
+      state: restarted
+      enabled: true

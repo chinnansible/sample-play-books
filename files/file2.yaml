@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: create an empty file with permision
+    file:
+      path: /tmp/file2
+      state: touch      
+      owner: ansible
+      group: ansible
+      mode: 0600

@@ -1,0 +1,14 @@
+---
+- hosts: demo
+  become: yes
+  tasks:
+  - name: Install multiple Packages
+    yum:
+      name: "{{ item }}"
+      state: installed
+    loop:
+      - epel-release
+      - git
+      - httpd
+      - cups
+      - rsyslog

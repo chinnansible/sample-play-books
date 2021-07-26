@@ -1,0 +1,18 @@
+---
+
+- hosts: all
+  user: root
+  become: yes
+  vars:
+    user: testa
+  tasks:
+    - name: Determine available groups
+      getent:
+        database: group
+
+    - name: Add additional groups to user
+      user: name="{{user}}" groups="{{item}}" append=yes
+      when: item in ansible_facts.getent_group
+      with_items: 
+        - sudo
+        - wheel

@@ -1,0 +1,6 @@
+[demo]
+managednode1.example.com
+managednode2.example.com
+
+
+controlnode.example.com ansible_connection=local

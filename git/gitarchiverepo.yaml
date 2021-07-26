@@ -1,0 +1,10 @@
+---
+# Example Create git archive from repo
+- hosts: all
+  become: yes
+  tasks:
+  - name: Create a git archive from repo
+    git:
+      repo: https://github.com/ansible/ansible-examples.git
+      dest: /tmp/src/ansible-examples
+      archive: /tmp/ansible-examples.zip

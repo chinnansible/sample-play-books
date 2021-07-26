@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: Archive multiple folders with different archive formats
+    archive:
+      path: 
+        - /tmp/mydata1
+        - /tmp/mydata2
+      dest: /tmp/mydatas.tar
+      format: tar

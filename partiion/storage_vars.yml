@@ -1,0 +1,8 @@
+---
+partitions:
+  - number: 1
+    start: 1MiB
+    end: 1GiB
+  - number: 2
+    start: 1GiB
+    end: 2GiB

@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+# Read device information (always use unit when probing)
+  - name: probing
+    parted: device=/dev/sdb 
+    register: sdb_info
+
+#   # Remove all partitions from disk
+  - name: Create a new Partition
+    parted:
+     device: /dev/sdb
+     number: "{{ item.num }}"
+     state: absent
+    with_items:
+     - "{{ sdb_info.partitions }}"

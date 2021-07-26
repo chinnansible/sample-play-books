@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: firewall to allow httpd service
+    firewalld:
+      service: "{{ item }}"
+      permanent: yes
+      immediate: yes
+      state: enabled
+    with_items:
+      - http
+      - https

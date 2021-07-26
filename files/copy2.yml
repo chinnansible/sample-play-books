@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: create a file with data using copy module with permission
+    copy:
+      content: "This file is my 2nd file with permission\nThis is my 2nd line\n"
+      dest: /tmp/file5
+      owner: ansible
+      group: ansible
+      mode: 0664

@@ -1,0 +1,8 @@
+---
+- hosts: demo
+  become: yes
+  tasks:
+  - name: install cups using yum
+    yum:
+      name: cups
+      state: installed

@@ -1,0 +1,17 @@
+---
+- name: Sync Push task - Executed on  the Destination host "{{groups['demo'][0]}}"
+  hosts: "{{groups['demo'][1]}}"
+# hosts: demo
+  user: ansible
+  tasks:   
+    - name: Copy the file from managednode1 to managednode2 using Method Push
+      tags: sync-push
+      synchronize:
+        src: "{{ item }}"
+        dest: "{{ item }}"
+        mode: push
+      delegate_to: "{{groups['demo'][0]}}"
+      register: syncfile
+      run_once: true
+      with_items:
+       - "/tmp/app01-to-app02.jar"

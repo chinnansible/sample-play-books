@@ -1,0 +1,8 @@
+---
+- hosts: demo
+  tasks:
+  - name: restart network service on enp0s3 interface
+    service:
+      name: network
+      state: restarted
+#      args: enp0s3 

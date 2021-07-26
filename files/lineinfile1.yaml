@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: add a new entry in /etc/hosts file
+    lineinfile:
+      path: /etc/hosts
+      line: 192.168.152.3       www.myweb.com   myweb
+      create: yes

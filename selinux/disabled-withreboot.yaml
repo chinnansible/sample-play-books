@@ -1,0 +1,10 @@
+---
+- hosts: demo
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: Disable selinx
+    selinux:
+      state: disabled
+  - name: Reboot the machine to take this effect
+    reboot:

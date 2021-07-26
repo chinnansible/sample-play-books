@@ -1,0 +1,9 @@
+---
+- hosts: demo
+  become: yes
+  
+  tasks:
+  - name: Remove a group
+    group:
+      name: developer
+      state: absent

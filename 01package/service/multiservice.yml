@@ -1,0 +1,12 @@
+---
+- hosts: demo
+  tasks:
+  - name: restart multiple services
+    service:
+      name: "{{ item }}"
+      state: restarted
+      enabled: true
+    loop:
+      - httpd
+      - cups
+      - rsyslog

@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: create a directory
+    file:
+     path: /tmp/dir1
+     state: directory
+     mode: 0775
+     owner: ansible
+     group: ansible

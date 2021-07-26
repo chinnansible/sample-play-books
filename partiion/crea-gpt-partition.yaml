@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: Create a new Partition
+    parted:
+     device: /dev/sdb
+     number: 1
+     label: gpt
+     state: present

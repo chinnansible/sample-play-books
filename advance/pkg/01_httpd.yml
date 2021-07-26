@@ -1,0 +1,14 @@
+--- 
+- name: Install HTTPD when httpd is not installed already 
+  hosts: demo
+  become: yes
+  tasks:
+    - name: "Determine if the HTTPD is installed"
+      register: validatehttpd
+      shell: httpd
+
+    - name: Ensure Apache is at the Latest version
+      yum:
+        name: httpd
+        state: latest
+      when: 'not found' in validatehttpd.stdout

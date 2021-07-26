@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name : firewall to allow httpd service
+    firewalld:
+      service: http
+      permanent: yes
+      immediate: yes
+      state: disabled

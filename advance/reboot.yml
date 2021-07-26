@@ -1,0 +1,10 @@
+---
+- name: Reboot OS when it blongs to Redhat family"
+  hosts: managednode1.example.com 
+  become: yes
+  user: ansible
+  tasks:
+    - name: "shut down Redhat/Debian flavored systems"
+      command: /sbin/shutdown -t now
+#     when: ansible_os_family == "Debian"
+      when: ansible_os_family == "RedHat"

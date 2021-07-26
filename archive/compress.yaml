@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: compress /tmp/mydata into /tmp/mydata.tgz
+    archive:
+      path: /tmp/demo.log
+      dest: /tmp/demo.log.tgz
+      remove: yes

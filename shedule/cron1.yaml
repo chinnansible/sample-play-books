@@ -1,0 +1,17 @@
+---
+- name: Cron Job
+  hosts: all
+  tasks:
+    - name: Crontab file exists
+      cron:
+        name: Find disk free.
+        user: ansible
+        job: df >> /home/ansible/disk_free
+        state: present
+
+    - name: Crontab file exists1
+      cron:
+        name: Find disk usage.
+        user: ansible
+        job: du >> /home/ansible/disk_usage
+        state: present

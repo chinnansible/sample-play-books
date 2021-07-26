@@ -1,0 +1,14 @@
+---
+- hosts: demo
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: create a fully customised user
+    user:
+      name: newuser3
+      group: gp1
+      groups: wheel,users
+      append: yes
+      shell: /bin/ksh
+      uid: 3001
+      comment: demo user

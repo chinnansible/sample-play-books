@@ -1,0 +1,7 @@
+---
+- hosts: managednode2.example.com
+  gather_facts: no
+  become: true
+  tasks:
+  - name: reboot managednode2 from controlmachine
+    reboot: 

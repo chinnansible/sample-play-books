@@ -1,0 +1,9 @@
+---
+- hosts: demo
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: remove user with home directory
+    user:
+      name: newuser3
+      state: absent

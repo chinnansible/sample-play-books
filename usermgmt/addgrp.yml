@@ -1,0 +1,12 @@
+---
+- hosts: demo
+  gather_facts: no
+  become: yes
+  remote_user: ansible
+  connection: ssh
+  tasks:
+  - name: Create a group "Developers" 
+    group:
+      name: developers
+      state: present
+      gid: 2001

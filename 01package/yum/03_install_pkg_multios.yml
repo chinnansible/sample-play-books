@@ -1,0 +1,21 @@
+---
+
+- hosts: all
+  user: root
+  become: yes
+  
+  tasks:
+  
+  - name: install the latest version of Apache on CentOS
+    yum: name= "{{ item }}" state=installed
+    when: ansible_os_family == "RedHat"
+    with_items: epel-release git httpd cups rsyslog
+
+  - name: install the latest version of Apache on Debian
+    apt: pkg= "{{ item }}" state=installed 
+    when: ansible_os_family == "Debian"
+    with_items: epel-release git httpd cups rsyslog
+
+  - name: Start a httpd service
+    service: name= "{{ item }}" state=restarted enabled=yes
+    with_items: epel-release git httpd cups rsyslog

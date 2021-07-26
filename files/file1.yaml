@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: create an empty file
+    file:
+     path: /tmp/file1
+     state: touch  

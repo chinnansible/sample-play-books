@@ -1,0 +1,12 @@
+---
+ - name: "Playbook to fetch and copy file when hosts match"
+   hosts: demo
+   tasks:
+     - name: Fetch the file from the managednode1 to master
+       run_once: yes
+       fetch: src=/tmp/app01-to-app02.jar dest=buffer/ flat=yes
+       when: " inventory_hostname == 'managednode1.example.com' "
+
+     - name: Copy the file from master to managednode2
+       copy: src=buffer/app01-to-app02.jar dest=/tmp/
+       when: " inventory_hostname == 'managednode2.example.com' "

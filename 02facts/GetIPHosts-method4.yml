@@ -1,0 +1,8 @@
+---
+- hosts: all
+  # this is by default YES. So no need mention it anyway
+  gather_facts: yes
+  tasks:
+  - name: Print all available facts
+    ansible.builtin.debug:
+      var: ansible_facts

@@ -1,0 +1,9 @@
+---
+- hosts: demo
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: create user with existing group
+    user:
+      name: newuser2
+      group: gp1

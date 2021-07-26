@@ -1,0 +1,14 @@
+---
+- hosts: demo
+  become: yes
+  tasks:
+  - name: Remove Multiple Packages
+    yum:
+      name: "{{ item }}"
+      state: absent
+    loop:
+      - epel-release
+      - git
+      - httpd
+      - cups
+      - rsyslog

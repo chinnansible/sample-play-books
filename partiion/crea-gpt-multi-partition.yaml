@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: Create a new Partition
+    parted:
+     device: /dev/sdb
+     number: "{{ item }}"
+     label: gpt
+     state: present
+     part_end: 300 MiB
+    with_sequence: count=5
